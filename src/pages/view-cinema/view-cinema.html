@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-navbar no-border-bottom color="cinema">
+        <ion-title style="height:10px;margin:auto;text-align:center;font-weight:100px;">{{listdata.title}}</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+    <div style="background-color:#990000;border-radius:10px;height:3.8rem;border:2px solid #fff;">
+        <ion-segment border-top color="light">
+            <ion-segment-button color="light" value="today" style="font-size:12px;text-transform:capitalize;">
+                nearest to you
+            </ion-segment-button>
+
+        </ion-segment>
+    </div>
+
+    <div style="margin:10px auto; text-align:center;font-size:15px;font-weight:bolder;">{{listdata.cinemaname}}<br> Movie Schedule</div>
+    <ion-item-divider></ion-item-divider>
+
+    <div padding style="margin:auto; padding:10px; width:400px; min-width:300px;" *ngFor="let list of lists">
+        <ion-item-group>
+
+            <img style="float:left;margin-left:10px;" [src]="list.imagelink" width="80" height="80" style="float:left; margin-right:10px;">
+            <div style="float:left; width:60%;font-size:14px;">
+                {{list.title}}
+                <p><span style="font-size:12px;">Showtime : {{list.schedule}}</span></p>
+            </div>
+        </ion-item-group>
+    </div>
+
+
+</ion-content>

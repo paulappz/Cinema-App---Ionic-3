@@ -13,17 +13,22 @@ import { SuperTabsController } from '../../ionic2-super-tabs/src';
 })
 export class HomePage {
 
-  page1: any = 'Page1Page';
-  page2: any = 'Page2Page';
-  page3: any = 'Page3Page';
+  page1: any = 'MoviePage';
+  page2: any = 'CinemaPage';
+  page3: any = 'Page1Page';
 
   showIcons: boolean = true;
   showTitles: boolean = true;
-  pageTitle: string = 'Full Height';
+  pageTitle: string = '9jaCinemas';
+
+  rootNavCtrl: NavController;
+
+  pageclass : string ;
 
   constructor(public navCtrl: NavController, private navParams: NavParams, private superTabsCtrl: SuperTabsController) {
+    this.pageclass = 'SearchMoviePage';
     const type = navParams.get('type');
-    switch (type) {
+/*     switch (type) {
       case 'icons-only':
         this.showTitles = false;
         this.pageTitle += ' - Icons only';
@@ -33,7 +38,7 @@ export class HomePage {
         this.showIcons = false;
         this.pageTitle += ' - Titles only';
         break;
-    }
+    } */
   }
 
   ngAfterViewInit() {
@@ -43,7 +48,21 @@ export class HomePage {
   }
 
   onTabSelect(tab: { index: number; id: string; }) {
+    if (tab.index == 1){
+      this.pageclass = 'SearchCinemaPage';
+    }
+    if (tab.index == 0){
+      this.pageclass = 'SearchMoviePage';
+    }
+    console.log(this.pageclass);
     console.log(`Selected tab: `, tab);
   }
+
+
+
+  searchPage(page){
+    console.log(page);
+    this.navCtrl.push(page)
+    }
 
 }

@@ -1,0 +1,76 @@
+<!-- <ion-header no-shadow no-border>
+    <ion-navbar color="cinema">
+        <ion-buttons end>
+            <button ion-button icon-only (click)="searchPage()">
+              <ion-icon name="search"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header> -->
+<ion-content>
+    <div style="background-color:#990000;border-radius:10px;height:3.8rem;border:2px solid #fff;">
+        <ion-segment border-top color="light" [(ngModel)]="segment">
+            <ion-segment-button color="light" value="today" style="font-size:12px;text-transform:capitalize;">
+                Today
+            </ion-segment-button>
+            <ion-segment-button value="tomorrow" style="font-size:12px;text-transform:capitalize;">
+                Tomorrow
+            </ion-segment-button>
+            <ion-segment-button value="thisweek" style="font-size:12px;text-transform:capitalize;">
+                This-week
+            </ion-segment-button>
+        </ion-segment>
+    </div>
+
+
+
+    <ion-item-group *ngIf="segment === 'today'">
+        <div *ngIf="place">
+            <ion-item-group>My Location:{{place.thoroughfare}}, {{place.locality}}, {{place.administrativeArea}}, {{place.countryName}}.</ion-item-group>
+            <!--     <div>GeoCoordLocation:{{lati}},{{longi}}</div> -->
+        </div>
+
+        <button ion-item *ngFor="let list of lists" (click)="ViewMovie(list)">
+            <img [src]="list.imagelink" width="80" height="100" style="float:left; margin-right:10px;">
+          <div style="float:left; font-size:12px;text-transform:capitalize;width:100px; height:100px"> <div> {{list.title}}</div><br>
+         <div> Starring : {{list.starring}}</div><br>
+          <div > Runtime : {{list.runningtime}} </div>
+           <div style="margin-top:10px;">
+           <ion-badge style="font-size:9px;"color="cinema" >{{list.vrating}}</ion-badge>
+           </div>
+          </div>
+         <ion-icon name="arrow-dropright" color="cinema" item-end></ion-icon>
+  </button>
+    </ion-item-group>
+
+    <ion-item-group *ngIf="segment === 'tomorrow'">
+        <button ion-item *ngFor="let list of lists" (click)="ViewMovie(list)">
+        <img [src]="list.imagelink" width="80" height="100" style="float:left; margin-right:10px;">
+      <div style="float:left; font-size:12px;text-transform:capitalize;width:100px; height:100px"> <div> {{list.title}}</div><br>
+     <div> Starring : {{list.starring}}</div><br>
+      <div > Runtime : {{list.runningtime}} </div>
+       <div style="margin-top:10px;">
+       <ion-badge style="font-size:9px;"color="cinema" >{{list.vrating}}</ion-badge>
+       </div>
+      </div>
+     <ion-icon name="arrow-dropright" color="cinema" item-end></ion-icon>
+</button>
+    </ion-item-group>
+
+    <ion-item-group *ngIf="segment === 'thisweek'">
+        <button ion-item *ngFor="let list of lists" (click)="ViewMovie(list)">
+        <img [src]="list.imagelink" width="80" height="100" style="float:left; margin-right:10px;">
+      <div style="float:left; font-size:12px;text-transform:capitalize;width:100px; height:100px"> <div> {{list.title}}</div><br>
+     <div> Starring : {{list.starring}}</div><br>
+      <div > Runtime : {{list.runningtime}} </div>
+       <div style="margin-top:10px;">
+       <ion-badge style="font-size:9px;"color="cinema" >{{list.vrating}}</ion-badge>
+       </div>
+      </div>
+     <ion-icon name="arrow-dropright" color="cinema" item-end></ion-icon>
+</button>
+
+    </ion-item-group>
+
+
+</ion-content>

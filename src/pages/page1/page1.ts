@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, IonicPage } from 'ionic-angular';
-import { PageToPushPage } from "../page-to-push/page-to-push";
+/* import { PageToPushPage } from "../page-to-push/page-to-push"; */
 
 @IonicPage()
 @Component({
@@ -10,17 +10,16 @@ import { PageToPushPage } from "../page-to-push/page-to-push";
 export class Page1Page {
 
   rootNavCtrl: NavController;
-
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.rootNavCtrl = navParams.get('rootNavCtrl');
   }
 
   pushPage(localNavCtrl: boolean = false) {
-    if (localNavCtrl) {
+    /* if (localNavCtrl) {
       this.navCtrl.push('PageToPushPage');
     } else {
       this.rootNavCtrl.push('PageToPushPage');
-    }
+    } */
   }
 
 }

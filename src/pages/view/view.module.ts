@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import {PageToPushPage} from "./page-to-push";
+import { ViewPage } from './view';
 
 @NgModule({
   declarations: [
-    PageToPushPage
+    ViewPage,
   ],
   imports: [
-    IonicPageModule.forChild(PageToPushPage)
-  ]
+    IonicPageModule.forChild(ViewPage),
+  ],
 })
-export class Module {}
+export class ViewPageModule {}

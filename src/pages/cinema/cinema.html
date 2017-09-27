@@ -1,0 +1,29 @@
+<ion-content>
+    <div style="background-color:#990000;border-radius:10px;height:3.8rem;border:2px solid #fff;">
+        <ion-segment border-top color="light">
+            <ion-segment-button color="light" value="today" style="font-size:12px;text-transform:capitalize;">
+                nearest to you
+            </ion-segment-button>
+        </ion-segment>
+    </div>
+    <!-- <div *ngIf="place">
+        <div>My Location:{{place.thoroughfare}}, {{place.locality}}, {{place.administrativeArea}}, {{place.countryName}}.</div>
+        <div>GeoCoordLocation:{{lati}},{{longi}}</div>
+    </div> -->
+
+    <ion-item-divider></ion-item-divider>
+    <ion-item-group>
+        <button ion-item *ngFor="let list of lists" (click)="ViewShowing(list)">
+            <img [src]="list.location_image" width="80" height="80" style="float:left; margin-right:10px;">
+          <div style="float:left; font-size:12px;text-transform:capitalize;width:100px; height:50px"> <div style="text-transform:uppercase;"> {{list.cinemaname}}</div><br>
+         <div>  <ion-icon color="cinema" name="locate"></ion-icon> : {{list.formatted_address}}</div>
+
+          </div>
+         <ion-icon name="arrow-dropright" color="cinema" item-end></ion-icon>
+  </button>
+
+    </ion-item-group>
+
+
+
+</ion-content>

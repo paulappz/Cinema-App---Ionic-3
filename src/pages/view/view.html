@@ -1,0 +1,90 @@
+<ion-header>
+    <ion-navbar no-border-bottom color="cinema">
+        <ion-title style="height:10px;margin:auto;text-align:center;font-weight:100px;">{{title}}</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+    <div style="background-color:#990000;border-radius:10px;height:3.8rem;border:2px solid #fff;">
+        <ion-segment border-top color="light" [(ngModel)]="segment">
+            <ion-segment-button color="light" value="about" style="font-size:12px;text-transform:capitalize;">
+                About
+            </ion-segment-button>
+            <ion-segment-button value="trailer" style="font-size:12px;text-transform:capitalize;">
+                Trailer
+            </ion-segment-button>
+        </ion-segment>
+    </div>
+
+
+    <div *ngIf="segment === 'trailer'" style="background-image:url(assets/cinema6.png);background-position:contain;width:100%;height:500px;margin: auto">
+        <div style="padding-top: 40px;">
+            <div style="max-width:400px;max-height:200px; width:300px;height:150px;margin: auto">
+                <iframe [src]='trailer'></iframe>
+            </div>
+        </div>
+    </div>
+
+
+    <div *ngIf="segment === 'about'">
+        <ion-card>
+            <div style="max-width:300px; min-width:200px;margin:10px auto;position: relative;">
+                <img [src]="listdata.imagelink" width="160" height="500" style="display: block;">
+                <div class="my-overlay" padding [hidden]="overlayHidden">
+                    <button ion-button color="white" style="margin:50px auto;" small (click)="hideOverlay()">Click me</button>
+
+                    <div padding style="color:white; font-size:12px;text-transform:capitalize; position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    -ms-transform: translate(-50%, -50%);">
+
+                        <div> {{listdata.title}}</div><br>
+                        <div> SYNOPSIS <br> {{listdata.synopsis}}</div><br>
+                        <div> Starring : {{listdata.starring}}</div><br>
+                        <div> Runtime : {{listdata.runningtime}} </div>
+                        <div style="margin-top:10px;">
+                            <ion-badge style="font-size:9px;" color="cinema">{{listdata.vrating}}</ion-badge>
+                        </div>
+                    </div>
+
+                </div>
+                <button ion-button color="white" style="top :20%;;position: absolute;" small (click)="showOverlay()">Click me</button>
+
+
+
+            </div>
+        </ion-card>
+    </div>
+
+    <ion-slides slidesPerView="5">
+        <ion-slide>
+            <span class="color blue"></span>
+        </ion-slide>
+        <ion-slide>
+            <span class="color red"></span>
+        </ion-slide>
+        <ion-slide>
+            <span class="color yellow"></span>
+        </ion-slide>
+        <ion-slide>
+            <span class="color blue"></span>
+        </ion-slide>
+        <ion-slide>
+            <span class="color red"></span>
+        </ion-slide>
+        <ion-slide>
+            <span class="color yellow"></span>
+        </ion-slide>
+        <ion-slide>
+            <span class="color blue"></span>
+        </ion-slide>
+        <ion-slide>
+            <span class="color red"></span>
+        </ion-slide>
+        <ion-slide>
+            <span class="color yellow"></span>
+        </ion-slide>
+    </ion-slides>
+</ion-content>

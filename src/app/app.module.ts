@@ -8,15 +8,21 @@ import { SuperTabsModule } from '../ionic2-super-tabs/src';
 
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { ListingsProvider } from '../providers/listings/listings';
+import { HttpModule } from '@angular/http';
+import { Geolocation } from '@ionic-native/geolocation';
+import { NativeGeocoder} from '@ionic-native/native-geocoder';
 
 @NgModule({
   declarations: [
     MyApp
   ],
+
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    SuperTabsModule.forRoot()
+    SuperTabsModule.forRoot(),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -25,7 +31,10 @@ import { StatusBar } from '@ionic-native/status-bar';
   providers: [
     SplashScreen,
     StatusBar,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    ListingsProvider,
+    Geolocation,
+    NativeGeocoder
   ]
 })
 export class AppModule { }
